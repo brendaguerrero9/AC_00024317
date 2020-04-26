@@ -38,6 +38,26 @@ mov     [20Bh], cl
 
 int 20h
 
-;EJERCICIO 2
+;EJERCICIO 3
+org     100h
+                    mov     ax, 0000h 
+                    mov     bx, 0000h
+                    mov     cx, 0000h
+                    mov     ax, 1d
+                    mov     di, 1d
+                    mov     cx, 0016d
+                    mov     dx,0000h
+
+    fibonacci:      mov    [di + 220h], ax
+    
+                    inc     di
+    
+                    mov     [200h],ax
+                    add     ax, dx
+                    mov     dx, [200h]
+
+                    loop    fibonacci
+
+int 20h
 
 
