@@ -39,7 +39,6 @@ mov     [20Bh], cl
 int 20h
 
 ;EJERCICIO 3
-org     100h
                     mov     ax, 0000h 
                     mov     bx, 0000h
                     mov     cx, 0000h
