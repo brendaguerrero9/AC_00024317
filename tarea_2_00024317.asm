@@ -36,24 +36,22 @@ mov     [20Ah], cl
 mov     cl, "D"
 mov     [20Bh], cl
 
-int 20h
-
 ;EJERCICIO 3
                     mov     ax, 0000h 
                     mov     bx, 0000h
                     mov     cx, 0000h
-                    mov     ax, 1d
-                    mov     di, 1d
-                    mov     cx, 0016d
-                    mov     dx,0000h
+                    mov     ax, 0d
+                    mov     di, 0d
+                    mov     cx, 0015d
+                    mov     dx, 1d
 
     fibonacci:      mov    [di + 220h], ax
     
                     inc     di
     
-                    mov     [200h],ax
+                    mov     bx,ax
                     add     ax, dx
-                    mov     dx, [200h]
+                    mov     dx, bx
 
                     loop    fibonacci
 
