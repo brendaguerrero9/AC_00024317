@@ -55,6 +55,22 @@ mov     [20Bh], cl
 
                     loop    fibonacci
 
+;EJERCICIO 2
+                mov     ax, 0000h
+                mov     al, 2d
+                mov     bx, 210h
+                mov     cx, 2d
+calculo:        mul     cx
+                mov     [bx], ax
+                cmp     ah, 00h; si es igual a 0 se te hace el segundo si es >0 hace primero
+                ja      salto2
+                je      salto1
+salto2:        add     bx, 2h
+                jmp     siguiente
+salto1:        add     bx, 1h
+siguiente:      cmp     bx, 21Fh; comprobar si es menor si no ahi temrina el bucle
+                jb      calculo
+
 int 20h
 
 
