@@ -4,9 +4,9 @@ section .text
 
 	call 	texto	
 	call 	cursor
-	call 	phrase
-    call    phrase2
-    call    phrase3
+	call 	frase
+    call    frase2
+    call    frase3
 	call	kbwait
 
 	int 	20h
@@ -36,13 +36,13 @@ w_char:	mov 	ah, 09h
 	ret
 
 m_cursr:mov 	ah, 02h
-	mov 	dx, di  ; columna
-	mov 	dh, 3d ; fila
+	mov 	dx, di  
+	mov 	dh, 3d 
 	mov 	bh, 0h
 	int 	10h
 	ret
 
-phrase:	mov 	di, 3d
+frase:	mov 	di, 3d
 loop:	mov 	cl, [msg+di-3d]
 	call    m_cursr
 	call 	w_char
@@ -50,6 +50,7 @@ loop:	mov 	cl, [msg+di-3d]
 	cmp 	di, len
 	jb	loop
 	ret
+
 ;Frase 2
 w_chart:	mov 	ah, 09h
 	mov 	al, cl
@@ -60,14 +61,14 @@ w_chart:	mov 	ah, 09h
 	ret
 
 m_cursrr:mov 	ah, 02h
-	mov 	dx, di  ; columna
-	mov 	dh, 9d ; fila
+	mov 	dx, di  
+	mov 	dh, 9d 
 	mov 	bh, 0h
 	int 	10h
 	ret
 
-phrase2:	mov 	di, 38d
-loop2:	mov 	cl, [phr+di-38d]
+frase2:	mov 	di, 38d
+loop2:	mov 	cl, [fra+di-38d]
 	call    m_cursrr
 	call 	w_chart
 	inc	di
@@ -86,14 +87,14 @@ w_char3:	mov 	ah, 09h
 	ret
 
 m_cur3:mov 	ah, 02h
-	mov 	dx, di  ; columna
-	mov 	dh, 15d ; fila
+	mov 	dx, di  
+	mov 	dh, 15d 
 	mov 	bh, 0h
 	int 	10h
 	ret
 
-phrase3:	mov 	di, 3d
-loop3:	mov 	cl, [phr3+di-3d]
+frase3:	mov 	di, 3d
+loop3:	mov 	cl, [fra3+di-3d]
 	call    m_cur3
 	call 	w_char3
 	inc	di
@@ -104,7 +105,7 @@ loop3:	mov 	cl, [phr3+di-3d]
 section .data
 msg	db 	"My milkshake brings all the boys to the yard"
 len 	equ	$-msg+3d
-phr	db 	"And they're like, it's better than yours"
-len2 	equ	$-phr+38d
-phr3	db 	"I can teach you, but I have to charge"
-len3 	equ	$-phr+3d
+fra	db 	"And they're like, it's better than yours"
+len2 	equ	$-fra+38d
+fra3	db 	"I can teach you, but I have to charge"
+len3 	equ	$-fra+3d
