@@ -103,7 +103,7 @@ loop3:	mov 	cl, [fra3+di-3d]
 	ret
 
 section .data
-msg	db 	"My milkshake brings all the boys to the yard"
+msg	db 	"My milkshake brings all the boys to the yard :3"
 len 	equ	$-msg+3d
 fra	db 	"And they're like, it's better than yours"
 len2 	equ	$-fra+38d
